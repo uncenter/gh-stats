@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 import aiohttp
 import asyncio
@@ -29,8 +29,12 @@ class GitHubAPI:
     session: aiohttp.ClientSession
     semaphore = asyncio.Semaphore(10)
 
+    @property
+    def auth_header(self):
+        return {"Authorization": f"Bearer {self.access_token}"}
+
     async def query_graphql(self, query: str) -> Dict:
-        headers = {"Authorization": f"Bearer {self.access_token}"}
+        headers = self.auth_header
         try:
             async with self.semaphore:
                 async with self.session.post(
@@ -41,11 +45,11 @@ class GitHubAPI:
                     result = await response.json()
                     return result if result else {}
         except aiohttp.ClientError as e:
-            print(f"aiohttp failed for GraphQL query: {e}")
+            print(f"GQL query failed: {e}")
             return {}
 
     async def query_rest(self, path: str, params: Optional[Dict] = None) -> Dict:
-        headers = {"Authorization": f"token {self.access_token}"}
+        headers = self.auth_header
         for _ in range(60):
             if params is None:
                 params = dict()
@@ -53,17 +57,17 @@ class GitHubAPI:
                 path = path[1:]
             try:
                 async with self.semaphore:
-                    r_async = await self.session.get(
+                    response = await self.session.get(
                         f"https://api.github.com/{path}",
                         headers=headers,
                         params=tuple(params.items()),
                     )
-                if r_async.status == 202:
-                    print("A path returned 202. Retrying...")
+                if response.status == 202:
+                    print(f"A path returned 202 ({path}). Retrying...")
                     await asyncio.sleep(2)
                     continue
 
-                result = await r_async.json()
+                result = await response.json()
                 if result is not None:
                     return result
             except aiohttp.ClientError:
@@ -83,15 +87,12 @@ class Queries:
         owned_cursor: Optional[str] = None,
     ) -> str:
         """
-        Returns a GraphQL query to get overall stats for a user
+        Get overall stats for a user.
 
         Args:
             contrib_cursor (Optional[str], optional): cursor for contributions. Defaults to None.
             owned_cursor (Optional[str], optional): cursor for owned repositories. Defaults to None.
             options (Options): options for the query
-
-        Returns:
-            str: GraphQL query
         """
 
         return f"""{{
@@ -185,10 +186,7 @@ class Queries:
     @staticmethod
     def contribution_years() -> str:
         """
-        Returns a GraphQL query to get the years for which a user has contributions
-
-        Returns:
-            str: GraphQL query
+        Get the years for which a user has contributions.
         """
 
         return """
@@ -204,11 +202,10 @@ query {
     @staticmethod
     def contributions_by_year(year: str) -> str:
         """
+        Generate a portion of a GraphQL query that retrieves the total contributions for a given year.
+
         Args:
             year (str): year to query for
-
-        Returns:
-            str: portion of a GraphQL query with desired info for a given year
         """
 
         return f"""
@@ -225,13 +222,10 @@ query {
     @classmethod
     def all_contributions(cls, years: List[str]) -> str:
         """
-        Get contributions for all years
+        Get all contributions from provided list of years.
 
         Args:
             years (List[str]): list of years to get contributions for
-
-        Returns:
-            str: GraphQL query
         """
 
         by_years = "\n".join(map(cls.contributions_by_year, years))
@@ -245,23 +239,6 @@ query {{
 
 
 class Stats:
-    """
-    Properties:
-        name (str): GitHub user's name
-        joined (Joined): object containing information about when the user joined GitHub
-        followers (int): total number of followers
-        following (int): total number of users followed by the user
-        sponsoring (int): total number of users and organizations sponsored by the user
-        starred_repositories (int): total number of repositories starred by the user
-        stargazers (int): total number of stargazers on user's repositories
-        forks (int): total number of forks on user's repositories
-        languages (Dict): summary of languages used by the user
-        languages_proportional (Dict): summary of languages used by the user, with proportional usage
-        repositories (Set[str]): list of names of user's repositories
-        total_contributions (int): count of user's total contributions as defined by GitHub
-        lines_changed (Tuple[int, int]): count of lines added and deleted by the user (Tuple[additions, deletions])
-    """
-
     def __init__(
         self,
         username: str,
@@ -411,8 +388,7 @@ class Stats:
     @property
     async def name(self) -> str:
         """
-        Returns:
-            str: GitHub user's name
+        str: user's name/username
         """
 
         if self._name is not None:
@@ -424,8 +400,7 @@ class Stats:
     @property
     async def joined(self) -> Joined:
         """
-        Returns:
-            Joined: object containing information about when the user joined GitHub
+        Joined: object containing information about when the user joined GitHub
         """
 
         if self._joined is not None:
@@ -437,8 +412,7 @@ class Stats:
     @property
     async def followers(self) -> int:
         """
-        Returns:
-            int: total number of followers
+        int: total number of followers
         """
 
         if self._followers is not None:
@@ -450,8 +424,7 @@ class Stats:
     @property
     async def following(self) -> int:
         """
-        Returns:
-            int: total number of users followed by the user
+        int: total number of users followed by user
         """
 
         if self._following is not None:
@@ -463,8 +436,7 @@ class Stats:
     @property
     async def sponsoring(self) -> int:
         """
-        Returns:
-            int: total number of users and organizations sponsored by the user
+        int: total number of users and organizations sponsored by user
         """
 
         if self._sponsoring is not None:
@@ -476,8 +448,7 @@ class Stats:
     @property
     async def starred_repositories(self) -> int:
         """
-        Returns:
-            int: total number of repositories starred by the user
+        int: total number of repositories starred by user
         """
 
         if self._starred_repositories is not None:
@@ -489,8 +460,7 @@ class Stats:
     @property
     async def stargazers(self) -> int:
         """
-        Returns:
-            int: total number of stargazers on user's repositories
+        int: total number of stargazers on user's repositories
         """
 
         if self._stargazers is not None:
@@ -502,8 +472,7 @@ class Stats:
     @property
     async def forks(self) -> int:
         """
-        Returns:
-            int: total number of forks on user's repositories
+        int: total number of forks on user's repositories
         """
 
         if self._forks is not None:
@@ -515,8 +484,7 @@ class Stats:
     @property
     async def languages(self) -> Dict:
         """
-        Returns:
-            Dict: summary of languages used by the user
+        Dict: summary of languages used by the user
         """
 
         if self._languages is not None:
@@ -528,8 +496,7 @@ class Stats:
     @property
     async def languages_proportional(self) -> Dict:
         """
-        Returns:
-            Dict: summary of languages used by the user, with proportional usage
+        Dict: summary of languages used by the user, with proportional usage
         """
 
         if self._languages is None:
@@ -541,8 +508,7 @@ class Stats:
     @property
     async def repositories(self) -> Set[str]:
         """
-        Returns:
-            Set[str]: list of names of user's repositories
+        Set[str]: list of names of user's repositories
         """
 
         if self._repositories is not None:
@@ -554,8 +520,7 @@ class Stats:
     @property
     async def total_contributions(self) -> int:
         """
-        Returns:
-            int: count of user's total contributions as defined by GitHub
+        int: count of user's total contributions as defined by GitHub
         """
 
         if self._total_contributions is not None:
@@ -584,8 +549,7 @@ class Stats:
     @property
     async def lines_changed(self) -> Tuple[int, int]:
         """
-        Returns:
-            Tuple[int, int]: count of lines added and deleted by the user (Tuple[additions, deletions])
+        Tuple[int, int]: count of lines added and deleted by the user (Tuple[additions, deletions])
         """
 
         if self._lines_changed is not None:
