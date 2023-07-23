@@ -9,16 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
       - uses: actions/setup-python@v4
         with:
           python-version: "3.11"
-          architecture: "x64"
-          cache: "pip"
 
       - name: Install and run black
         run: |
-          python3 -m pip install black
+          python3.11 -m pip install black
           black .
 
       - name: Commit changes
