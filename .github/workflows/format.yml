@@ -1,4 +1,4 @@
-name: "Format code"
+name: "Format"
 
 on:
   push:
@@ -10,14 +10,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v4
+      - uses: actions/setup-python@v4
         with:
-          python-version: "3.8"
+          python-version: "3.11"
           architecture: "x64"
           cache: "pip"
 
-      - name: Format code with black
+      - name: Install and run black
         run: |
           python3 -m pip install black
           black .
