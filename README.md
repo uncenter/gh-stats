@@ -1,25 +1,23 @@
-<h1>github-stats</h1>
+<h1>gh-stats</h1>
 
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg?style=flat-square)](https://github.com/psf/black)
 
 A workflow that generates various statistics about my GitHub activity in the form of SVGs. Check out the [original project (GitHub Stats Visualization)](https://github.com/jstrieb/github-stats) and [idiotWu's more updated fork](https://github.com/idiotWu/stats) that served as the basis for some of the changes I made.
 
-![](https://raw.githubusercontent.com/uncenter/github-stats/main/github-stats-overview-dark.svg)
-![](https://raw.githubusercontent.com/uncenter/github-stats/main/github-stats-languages-dark.svg)
-![](https://raw.githubusercontent.com/uncenter/github-stats/main/github-stats-community-dark.svg)
-![](https://raw.githubusercontent.com/uncenter/github-stats/main/github-stats-overview-light.svg)
-![](https://raw.githubusercontent.com/uncenter/github-stats/main/github-stats-languages-light.svg)
-![](https://raw.githubusercontent.com/uncenter/github-stats/main/github-stats-community-light.svg)
+|Dark|Light|
+|---|---|
+|![](https://raw.githubusercontent.com/uncenter/gh-stats/main/dist/overview-dark.svg)|![](https://raw.githubusercontent.com/uncenter/gh-stats/main/dist/overview-light.svg)|
+|![](https://raw.githubusercontent.com/uncenter/gh-stats/main/dist/languages-dark.svg)|![](https://raw.githubusercontent.com/uncenter/gh-stats/main/dist/languages-light.svg)|
+|![](https://raw.githubusercontent.com/uncenter/gh-stats/main/dist/community-dark.svg)|![](https://raw.githubusercontent.com/uncenter/gh-stats/main/dist/community-light.svg)|
 
 ## Features
 
 -   No distracting animations
--   Consistent styling and overall layout between the two generated images
+-   Consistent styling and overall layout between images
 -   No gaps between colors in the languages progress bar
 -   Languages aligned in clean looking columns
 -   Larger color circles for each language label
 -   `EXCLUDE_PRIVATE_REPOS` option
--   Additional `community` image/card
 
 ## Options
 
