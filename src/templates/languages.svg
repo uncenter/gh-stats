@@ -1,0 +1,93 @@
+<svg width="360" height="210" xmlns="http://www.w3.org/2000/svg">
+<style>
+{{ styles.svg }}
+
+{{ styles.background }}
+
+{{ styles.foreignObject }}
+
+{{ styles.octicon }}
+
+div.ellipsis {
+    display: flex;
+    flex-flow: column;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+h2 {
+    margin: 0;
+    padding: 0;
+    margin-bottom: {{ styles.heading.margin-bottom }};
+    font-size: {{ styles.heading.font-size }};
+    font-weight: {{ styles.heading.font-weight }};
+    line-height: {{ styles.heading.line-height }};
+    color: {{ styles.heading.color }};
+}
+
+.progress {
+    display: flex;
+    height: 8px;
+    overflow: hidden;
+    background-color: {{ styles.progress.background-color }};
+    border-radius: 6px;
+    outline: 1px solid transparent;
+    margin-bottom: 1em;
+}
+
+.progress > span {
+    border-collapse: collapse;
+}
+
+ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    flex: 1;
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+li {
+    line-height: {{ styles.element.line-height }};
+    display: inline-flex;
+    font-size: {{ styles.element.font-size }};
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: {{ styles.element.padding }};
+}
+
+li:nth-child(even) {
+    justify-content: right;
+}
+
+.lang {
+    font-weight: {{ styles.element.font-weight }};
+    margin-right: 4px;
+    color: {{ styles.element.color }};
+}
+
+.percent {
+    color: {{ styles.octicon.color }};
+}
+</style>
+<g>
+    <rect x="5" y="5" id="background" />
+        <g>
+            <foreignObject x="21" y="21" width="318" height="176">
+                <div xmlns="http://www.w3.org/1999/xhtml" class="ellipsis">
+                    <h2>Most Used Languages</h2>
+                    <div>
+                        <span class="progress">
+                        {{ progress }}
+                        </span>
+                    </div>
+                    <ul>
+                    {{ lang_list }}
+                    </ul>
+                </div>
+            </foreignObject>
+        </g>
+    </g>
+</svg>

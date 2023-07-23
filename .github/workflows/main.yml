@@ -1,0 +1,45 @@
+name: "Update images"
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+          architecture: "x64"
+          cache: "pipenv"
+
+      - run: |
+          pip install pipenv
+          pipenv install
+
+      - name: Generate images
+        run: |
+          git pull
+          pipenv run generate
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          EXCLUDED: uncenter/analytics
+          EXCLUDED_LANGS: ""
+          EXCLUDE_FORKED_REPOS: true
+          EXCLUDE_PRIVATE_REPOS: true
+          GENERATED_IMAGE_PATH: "{{ template }}-{{ theme }}.svg"
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          default_author: github_actions
+          message: "chore: update generated images"
