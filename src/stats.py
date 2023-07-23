@@ -17,13 +17,6 @@ class Options:
 
 
 @dataclass
-class Joined:
-    dt: pendulum.DateTime
-    relative: str
-    formatted: str
-
-
-@dataclass
 class GitHubAPI:
     access_token: str
     session: aiohttp.ClientSession
@@ -48,11 +41,9 @@ class GitHubAPI:
             print(f"GQL query failed: {e}")
             return {}
 
-    async def query_rest(self, path: str, params: Optional[Dict] = None) -> Dict:
+    async def query_rest(self, path: str) -> Dict:
         headers = self.auth_header
         for _ in range(60):
-            if params is None:
-                params = dict()
             if path.startswith("/"):
                 path = path[1:]
             try:
@@ -60,7 +51,6 @@ class GitHubAPI:
                     response = await self.session.get(
                         f"https://api.github.com/{path}",
                         headers=headers,
-                        params=tuple(params.items()),
                     )
                 if response.status == 202:
                     print(f"A path returned 202 ({path}). Retrying...")
@@ -251,7 +241,7 @@ class Stats:
         self.username = username
 
         self._name: Optional[str] = None
-        self._joined: Optional[Joined] = None
+        self._joined: Optional[pendulum.datetime] = None
         self._followers: Optional[int] = None
         self._following: Optional[int] = None
         self._sponsoring: Optional[int] = None
@@ -299,12 +289,7 @@ class Stats:
                 raw_results.get("data", {}).get("viewer", {}).get("createdAt", None)
             )
             if created_at is not None:
-                dt = pendulum.parse(created_at)
-                self._joined = Joined(
-                    dt=dt,
-                    relative=dt.diff_for_humans(),
-                    formatted=dt.to_formatted_date_string(),
-                )
+                self._joined = pendulum.parse(created_at)
 
             self._followers = (
                 raw_results.get("data", {})
@@ -398,9 +383,9 @@ class Stats:
         return self._name
 
     @property
-    async def joined(self) -> Joined:
+    async def joined(self) -> pendulum.datetime:
         """
-        Joined: object containing information about when the user joined GitHub
+        pendulum.datetime: when the user joined GitHub
         """
 
         if self._joined is not None:

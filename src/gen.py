@@ -114,8 +114,8 @@ async def generate_image(template_name: str, s: Stats, output_path: str) -> None
 
     replacements = {
         "name": await s.name,
-        "joined_relative": (await s.joined).relative,
-        "joined_formatted": (await s.joined).formatted,
+        "joined_relative": (await s.joined).diff_for_humans(),
+        "joined_formatted": (await s.joined).to_formatted_date_string(),
         "followers": f"{await s.followers:,}",
         "following": f"{await s.following:,}",
         "sponsoring": f"{await s.sponsoring:,}",
@@ -131,7 +131,6 @@ async def generate_image(template_name: str, s: Stats, output_path: str) -> None
         sorted_languages = sorted(
             (await s.languages).items(), reverse=True, key=lambda t: t[1].get("size")
         )[:8]
-        print(sorted_languages)
 
         progress = "".join(
             f'<span style="background-color: {data.get("color", "#000000")}; width: {data.get("prop", 0):0.3f}%;"></span>'
@@ -148,7 +147,6 @@ async def generate_image(template_name: str, s: Stats, output_path: str) -> None
         )
 
         replacements.update({"progress": progress, "lang_list": lang_list})
-    print(replacements)
     output = replace_with_data(replacements, template)
 
     os.makedirs(OUTPUT_DIR, exist_ok=True)
