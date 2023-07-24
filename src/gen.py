@@ -178,7 +178,7 @@ async def main() -> None:
 
         return [x.strip() for x in string.split(",")] if string else []
 
-    def truthy(value, default=False) -> bool:
+    def truthy(value, *, default=False) -> bool:
         """
         Convert an unknown value to a boolean.
 
@@ -208,8 +208,8 @@ async def main() -> None:
     options = Options(
         excluded_repos=string_to_list(os.getenv("EXCLUDED")),
         excluded_langs=string_to_list(os.getenv("EXCLUDED_LANGS")),
-        exclude_forked_repos=truthy(os.getenv("EXCLUDE_FORKED_REPOS"), True),
-        exclude_private_repos=truthy(os.getenv("EXCLUDE_PRIVATE_REPOS"), True),
+        exclude_forked_repos=truthy(os.getenv("EXCLUDE_FORKED_REPOS"), default=True),
+        exclude_private_repos=truthy(os.getenv("EXCLUDE_PRIVATE_REPOS"), default=True),
     )
 
     generated_image_path = os.getenv("GENERATED_IMAGE_PATH")

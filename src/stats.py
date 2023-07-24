@@ -23,7 +23,7 @@ class GitHubAPI:
     semaphore = asyncio.Semaphore(10)
 
     @property
-    def auth_header(self):
+    def auth_header(self) -> dict[str, str]:
         return {"Authorization": f"Bearer {self.access_token}"}
 
     async def query_graphql(self, query: str) -> Dict:
