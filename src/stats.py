@@ -23,16 +23,15 @@ class GitHubAPI:
     semaphore = asyncio.Semaphore(10)
 
     @property
-    def auth_header(self) -> dict[str, str]:
+    def headers(self) -> dict[str, str]:
         return {"Authorization": f"Bearer {self.access_token}"}
 
     async def query_graphql(self, query: str) -> Dict:
-        headers = self.auth_header
         try:
             async with self.semaphore:
                 async with self.session.post(
                     "https://api.github.com/graphql",
-                    headers=headers,
+                    headers=self.headers,
                     json={"query": query},
                 ) as response:
                     result = await response.json()
@@ -42,7 +41,6 @@ class GitHubAPI:
             return {}
 
     async def query_rest(self, path: str) -> Dict:
-        headers = self.auth_header
         for _ in range(60):
             if path.startswith("/"):
                 path = path[1:]
@@ -50,7 +48,7 @@ class GitHubAPI:
                 async with self.semaphore:
                     response = await self.session.get(
                         f"https://api.github.com/{path}",
-                        headers=headers,
+                        headers=self.headers,
                     )
                 if response.status == 202:
                     print(f"A path returned 202 ({path}). Retrying...")
@@ -78,11 +76,6 @@ class Queries:
     ) -> str:
         """
         Get overall stats for a user.
-
-        Args:
-            contrib_cursor (Optional[str], optional): cursor for contributions. Defaults to None.
-            owned_cursor (Optional[str], optional): cursor for owned repositories. Defaults to None.
-            options (Options): options for the query
         """
 
         return f"""{{
@@ -193,9 +186,6 @@ query {
     def contributions_by_year(year: str) -> str:
         """
         Generate a portion of a GraphQL query that retrieves the total contributions for a given year.
-
-        Args:
-            year (str): year to query for
         """
 
         return f"""
@@ -213,9 +203,6 @@ query {
     def all_contributions(cls, years: List[str]) -> str:
         """
         Get all contributions from provided list of years.
-
-        Args:
-            years (List[str]): list of years to get contributions for
         """
 
         by_years = "\n".join(map(cls.contributions_by_year, years))

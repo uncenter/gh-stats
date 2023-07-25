@@ -23,6 +23,16 @@ def replace_with_data(data: Dict[str, str], content: str) -> str:
 
     Returns:
         str: The template content with the placeholder strings replaced.
+
+    Example:
+        content = "Hello, my name is {{ name }} and I work as a {{ job }}."
+
+        result = replace_with_data({
+            "name": "John",
+            "job": "engineer",
+        }, content)
+
+        "Hello, my name is John and I work as an engineer."
     """
 
     for key, value in data.items():
@@ -48,7 +58,7 @@ def load_json(file: str) -> Dict:
 
 def get_inserted_styles() -> Dict[str, Dict[str, str]]:
     """
-    Convert template styles from JSON to CSS properties, themed for light and dark mode.
+    Convert template styles from JSON to CSS properties ready for substitution.
 
     Returns:
         dict[str, dict[str, str]]: A dictionary with two keys, "light" and "dark", each containing a dictionary of theme-specific CSS properties.
@@ -102,11 +112,6 @@ def get_inserted_styles() -> Dict[str, Dict[str, str]]:
 async def generate_image(template_name: str, s: Stats, output_path: str) -> None:
     """
     Generate an image based on the given template.
-
-    Args:
-        template_name (str): Name of the template.
-        s (Stats): Stats object.
-        output_path (str): Output path for the generated image.
     """
 
     with open(os.path.join(TEMPLATE_DIR, f"{template_name}.svg"), "r") as f:
