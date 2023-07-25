@@ -19,9 +19,34 @@ A workflow that generates various statistics about my GitHub activity in the for
 - Larger color circles for each language label
 - `EXCLUDE_PRIVATE_REPOS` option
 
+## Usage
+
+Clone this repository without the Git history and create a new GitHub repository for it.
+
+```sh
+git clone --depth 1 https://github.com/uncenter/gh-stats.git
+```
+
+Adjust settings/options via environment variables in `.github/workflows/main.yml` to your liking. You'll need to generate a personal access token for the workflow to succeed:
+
+1. Click this link: [generate a new "classic" token](https://github.com/settings/tokens/new) (If you are not logged in, follow these [instructions](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)).
+2. Ensure you select "classic" token type.
+3. Name the token.
+4. Set your preferred 'Expiration' date (no expiration if you want to just "set and forget").
+5. Select `repo` for full control of private repositories.
+6. Select `read:user` for read-only access to all user profile data.
+7. Click the 'Generate token' button.
+8. Copy the generated token - this is the one and only time to copy it.
+
+You'll then need to create a new repository secret for this token:
+
+1. Go to the **Settings** tab of the repository, click the **Secrets and variables** item on the side panel, click **Actions** in the expanded dropdown, and then click the green **New repository secret** button.
+2. Name the new secret `ACCESS_TOKEN`.
+3. Enter the personal access token from the previous step as the value and click **Add secret**.
+
 ## Options
 
-For each of the following options, add a new secret with the name and value to your repository's secrets (under the `Settings` tab). Some of the values are added as secrets by default to prevent leaking information about private repositories. If you're not worried about that, you can change the values directly in the workflow itself - just replace `VARIABLE_NAME: ${{ secrets.VARIABLE_NAME }}` with the value you want, like `VARIABLE_NAME: true`. Any options which take "lists" of values should be set as comma seperated values inside a single string.
+For each of the following options, add a new secret with the name and value to your repository's secrets like you did for the access token. Some of the values are added as secrets by default to prevent leaking information about private repositories. If you're not worried about that, you can change the values directly in the workflow itself - just replace `VARIABLE_NAME: ${{ secrets.VARIABLE_NAME }}` with the value you want, like `VARIABLE_NAME: true`. Any options which take "lists" of values should be set as comma seperated values inside a single string.
 
 - To exclude certain repositories, set the variable `EXCLUDED` to `USERNAME/REPOSITORY,USERNAME/REPOSITORY2`.
 - To ignore certain languages, set the variable `EXCLUDED_LANGS` to `lang,lang2`. Languages are not case sensitive.
