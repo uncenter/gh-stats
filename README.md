@@ -4,11 +4,11 @@
 
 A workflow that generates various statistics about my GitHub activity in the form of SVGs. Check out the [original project (GitHub Stats Visualization)](https://github.com/jstrieb/github-stats) and [idiotWu's more updated fork](https://github.com/idiotWu/stats) that served as the basis for some of the changes I made.
 
-|Dark|Light|
-|---|---|
-|![](https://raw.githubusercontent.com/uncenter/gh-stats/main/dist/overview-dark.svg)|![](https://raw.githubusercontent.com/uncenter/gh-stats/main/dist/overview-light.svg)|
-|![](https://raw.githubusercontent.com/uncenter/gh-stats/main/dist/languages-dark.svg)|![](https://raw.githubusercontent.com/uncenter/gh-stats/main/dist/languages-light.svg)|
-|![](https://raw.githubusercontent.com/uncenter/gh-stats/main/dist/community-dark.svg)|![](https://raw.githubusercontent.com/uncenter/gh-stats/main/dist/community-light.svg)|
+| Dark                                                                                  | Light                                                                                  |
+| ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| ![](https://raw.githubusercontent.com/uncenter/gh-stats/main/dist/overview-dark.svg)  | ![](https://raw.githubusercontent.com/uncenter/gh-stats/main/dist/overview-light.svg)  |
+| ![](https://raw.githubusercontent.com/uncenter/gh-stats/main/dist/languages-dark.svg) | ![](https://raw.githubusercontent.com/uncenter/gh-stats/main/dist/languages-light.svg) |
+| ![](https://raw.githubusercontent.com/uncenter/gh-stats/main/dist/community-dark.svg) | ![](https://raw.githubusercontent.com/uncenter/gh-stats/main/dist/community-light.svg) |
 
 ## Features
 
@@ -29,7 +29,7 @@ git clone --depth 1 https://github.com/uncenter/gh-stats.git
 
 Adjust settings/options via environment variables in `.github/workflows/main.yml` to your liking. You'll need to generate a personal access token for the workflow to succeed:
 
-1. Click this link: [generate a new "classic" token](https://github.com/settings/tokens/new) (If you are not logged in, follow these [instructions](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)).
+1. Click this link: [generate a new "classic" token](https://github.com/settings/tokens/new) (if you are not logged in, follow these [instructions](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)).
 2. Ensure you select "classic" token type.
 3. Name the token.
 4. Set your preferred 'Expiration' date (no expiration if you want to just "set and forget").
