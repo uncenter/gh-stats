@@ -1,4 +1,4 @@
-name: "Update"
+name: Update
 
 on:
   push:
@@ -27,7 +27,7 @@ jobs:
           pip install pipenv
           pipenv install
 
-      - name: Generate images
+      - name: Update stats
         run: |
           git pull
           pipenv run generate
