@@ -1,11 +1,17 @@
 {
-    "overrides": [
-        {
-            "files": "**/*.{yml,yaml}",
-            "options": {
-                "singleQuote": false,
-                "tabWidth": 2
-            }
-        }
-    ]
+	"useTabs": true,
+	"tabWidth": 4,
+	"printWidth": 80,
+	"trailingComma": "all",
+	"semi": true,
+	"singleQuote": true,
+	"overrides": [
+		{
+			"files": "**/*.{yml,yaml,md}",
+			"options": {
+				"singleQuote": false,
+				"tabWidth": 2
+			}
+		}
+	]
 }
