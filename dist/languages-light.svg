@@ -98,7 +98,7 @@ li:nth-child(even) {
                     <h2>Most Used Languages</h2>
                     <div>
                         <span class="progress">
-                        <span style="background-color: #3178c6; width: 22.586%;"></span><span style="background-color: #3572A5; width: 22.488%;"></span><span style="background-color: #f1e05a; width: 22.353%;"></span><span style="background-color: #c6538c; width: 15.078%;"></span><span style="background-color: #3d8137; width: 7.924%;"></span><span style="background-color: #89e051; width: 3.654%;"></span><span style="background-color: #e34c26; width: 2.948%;"></span><span style="background-color: #563d7c; width: 2.188%;"></span>
+                        <span style="background-color: #3178c6; width: 22.589%;"></span><span style="background-color: #3572A5; width: 22.491%;"></span><span style="background-color: #f1e05a; width: 22.356%;"></span><span style="background-color: #c6538c; width: 15.080%;"></span><span style="background-color: #3d8137; width: 7.925%;"></span><span style="background-color: #89e051; width: 3.655%;"></span><span style="background-color: #e34c26; width: 2.949%;"></span><span style="background-color: #563d7c; width: 2.188%;"></span>
                         </span>
                     </div>
                     <ul>
@@ -113,7 +113,7 @@ li:nth-child(even) {
 </li><li>
 <svg xmlns="http://www.w3.org/2000/svg" class="octicon" style="fill:#f1e05a;" viewBox="0 0 16 16" width="16" height="16"><circle xmlns="http://www.w3.org/2000/svg" cx="8" cy="9" r="5" /></svg>
 <span class="lang">JavaScript</span>
-<span class="percent">22.35%</span>
+<span class="percent">22.36%</span>
 </li><li>
 <svg xmlns="http://www.w3.org/2000/svg" class="octicon" style="fill:#c6538c;" viewBox="0 0 16 16" width="16" height="16"><circle xmlns="http://www.w3.org/2000/svg" cx="8" cy="9" r="5" /></svg>
 <span class="lang">SCSS</span>
@@ -121,7 +121,7 @@ li:nth-child(even) {
 </li><li>
 <svg xmlns="http://www.w3.org/2000/svg" class="octicon" style="fill:#3d8137;" viewBox="0 0 16 16" width="16" height="16"><circle xmlns="http://www.w3.org/2000/svg" cx="8" cy="9" r="5" /></svg>
 <span class="lang">Nunjucks</span>
-<span class="percent">7.92%</span>
+<span class="percent">7.93%</span>
 </li><li>
 <svg xmlns="http://www.w3.org/2000/svg" class="octicon" style="fill:#89e051;" viewBox="0 0 16 16" width="16" height="16"><circle xmlns="http://www.w3.org/2000/svg" cx="8" cy="9" r="5" /></svg>
 <span class="lang">Shell</span>
