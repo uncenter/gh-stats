@@ -2,11 +2,13 @@ name: Format
 
 on:
   push:
-  pull_request:
+    branches: [main]
 
 jobs:
   format:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
