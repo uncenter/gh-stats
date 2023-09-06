@@ -32,7 +32,7 @@ Adjust settings/options via environment variables in `.github/workflows/main.yml
 1. Click this link: [generate a new "classic" token](https://github.com/settings/tokens/new) (if you are not logged in, follow these [instructions](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)).
 2. Ensure you select "classic" token type.
 3. Name the token.
-4. Set your preferred 'Expiration' date (no expiration if you want to just "set and forget").
+4. STo use these options, add a new secret with the specified name and value to your repository's secrets, similar to how you added the access token secret. If you prefer not to use secrets, you can directly set the values in the workflow file by replacing VARIABLE_NAME: ${{ secrets.VARIABLE_NAME }} with the desired value (e.g., VARIABLE_NAME: true). For options that accept lists of values, ensure you provide the values as comma-separated strings within a single string.et your preferred 'Expiration' date (no expiration if you want to just "set and forget").
 5. Select `repo` for full control of private repositories.
 6. Select `read:user` for read-only access to all user profile data.
 7. Click the 'Generate token' button.
@@ -46,10 +46,12 @@ You'll then need to create a new repository secret for this token:
 
 ## Options
 
-For each of the following options, add a new secret with the name and value to your repository's secrets like you did for the access token. Some of the values are added as secrets by default to prevent leaking information about private repositories. If you're not worried about that, you can change the values directly in the workflow itself - just replace `VARIABLE_NAME: ${{ secrets.VARIABLE_NAME }}` with the value you want, like `VARIABLE_NAME: true`. Any options which take "lists" of values should be set as comma seperated values inside a single string.
+| Option              | Description                                                                                                   | Usage Example                        |
+|--------------------------|---------------------------------------------------------------------------------------------------------------|--------------------------------------|
+| `EXCLUDED`               | Exclude certain repositories by specifying their usernames and repository names as a comma-separated list.  | `someone/repository,another-person/another-repository` |
+| `EXCLUDED_LANGS`         | Ignore certain languages by specifying them as a comma-separated list. Languages are not case-sensitive.   | `html,css`                         |
+| `EXCLUDE_FORKED_REPOS`   | Show statistics only for "owned" repositories and exclude forks with contributions.                        | `true`                               |
+| `EXCLUDE_PRIVATE_REPOS`  | Show statistics for only public repositories and exclude your private ones.                                 | `true`                               |
+| `GENERATED_IMAGE_NAME`   | Customize the output path for generated images. Make sure to end with the `.svg` extension and keep the `{{ template }}` and `{{ theme }}` variables somewhere in the name. There are three templates - `overview`, `languages`, `community` - and two themes - `light` and `dark`.                | `{{ template }}-{{ theme }}.svg`                |
 
-- To exclude certain repositories, set the variable `EXCLUDED` to `USERNAME/REPOSITORY,USERNAME/REPOSITORY2`.
-- To ignore certain languages, set the variable `EXCLUDED_LANGS` to `lang,lang2`. Languages are not case sensitive.
-- To show statistics only for "owned" repositories and not forks with contributions, set the variable called `EXCLUDE_FORKED_REPOS` to `true`.
-- To show statistics for only public repositories and not your privated ones, set the variable `EXCLUDE_PRIVATE_REPOS` to `true`.
-- To customize the output path, set the `GENERATED_IMAGE_NAME` variable. The default is `{{ template }}-{{ theme }}.svg`, which will generate files like `overview-dark.svg` and `languages-light.svg`. Make sure to include the `.svg` extension and keep the `{{ template }}` and `{{ theme }}` variables (somewhere) in the name.
+To use these options, add a new secret with the specified name and value to your repository's secrets, similar to how you added the access token secret. If you prefer not to use secrets, you can directly set the values in the workflow file by replacing `VARIABLE_NAME: ${{ secrets.VARIABLE_NAME }}` with the desired value (e.g., `VARIABLE_NAME: true`). For options that accept lists of values, provide the values as comma-separated strings within a single string. Make sure not to separate values with spaces though - `apples,oranges` works but `apples, oranges` will not.
