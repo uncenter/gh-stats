@@ -27,16 +27,15 @@ Clone this repository without the Git history and create a new GitHub repository
 git clone --depth 1 https://github.com/uncenter/gh-stats.git
 ```
 
-Adjust settings/options via environment variables in `.github/workflows/main.yml` to your liking. You'll need to generate a personal access token for the workflow to succeed:
+Adjust settings/options via environment variables in `.github/workflows/main.yml` to your liking (see [Options](#options)). You'll need to generate a personal access token for the workflow to succeed:
 
 1. Click this link: [generate a new "classic" token](https://github.com/settings/tokens/new) (if you are not logged in, follow these [instructions](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)).
 2. Ensure you select "classic" token type.
 3. Name the token.
-4. STo use these options, add a new secret with the specified name and value to your repository's secrets, similar to how you added the access token secret. If you prefer not to use secrets, you can directly set the values in the workflow file by replacing VARIABLE_NAME: ${{ secrets.VARIABLE_NAME }} with the desired value (e.g., VARIABLE_NAME: true). For options that accept lists of values, ensure you provide the values as comma-separated strings within a single string.et your preferred 'Expiration' date (no expiration if you want to just "set and forget").
-5. Select `repo` for full control of private repositories.
-6. Select `read:user` for read-only access to all user profile data.
-7. Click the 'Generate token' button.
-8. Copy the generated token - this is the one and only time to copy it.
+4. Set your preferred 'Expiration' date (no expiration if you want to just set and forget).
+5. Select `repo` (full control of private repositories) and `read:user` (read-only access to all user profile data).
+6. Click the 'Generate token' button.
+7. Copy the generated token - this is the one and only time to copy it.
 
 You'll then need to create a new repository secret for this token:
 
