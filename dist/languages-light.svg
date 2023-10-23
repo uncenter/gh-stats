@@ -98,42 +98,42 @@ li:nth-child(even) {
                     <h2>Most Used Languages</h2>
                     <div>
                         <span class="progress">
-                        <span style="background-color: #3178c6; width: 21.457%;"></span><span style="background-color: #c6538c; width: 20.320%;"></span><span style="background-color: #f1e05a; width: 19.325%;"></span><span style="background-color: #3572A5; width: 17.262%;"></span><span style="background-color: #3d8137; width: 5.821%;"></span><span style="background-color: #000080; width: 5.614%;"></span><span style="background-color: #89e051; width: 3.423%;"></span><span style="background-color: #e34c26; width: 2.918%;"></span>
+                        <span style="background-color: #3178c6; width: 22.735%;"></span><span style="background-color: #c6538c; width: 21.531%;"></span><span style="background-color: #f1e05a; width: 20.477%;"></span><span style="background-color: #3572A5; width: 18.290%;"></span><span style="background-color: #3d8137; width: 6.168%;"></span><span style="background-color: #89e051; width: 3.626%;"></span><span style="background-color: #e34c26; width: 3.092%;"></span><span style="background-color: #563d7c; width: 2.598%;"></span>
                         </span>
                     </div>
                     <ul>
                     <li>
 <svg xmlns="http://www.w3.org/2000/svg" class="octicon" style="fill:#3178c6;" viewBox="0 0 16 16" width="16" height="16"><circle xmlns="http://www.w3.org/2000/svg" cx="8" cy="9" r="5" /></svg>
 <span class="lang">TypeScript</span>
-<span class="percent">21.46%</span>
+<span class="percent">22.74%</span>
 </li><li>
 <svg xmlns="http://www.w3.org/2000/svg" class="octicon" style="fill:#c6538c;" viewBox="0 0 16 16" width="16" height="16"><circle xmlns="http://www.w3.org/2000/svg" cx="8" cy="9" r="5" /></svg>
 <span class="lang">SCSS</span>
-<span class="percent">20.32%</span>
+<span class="percent">21.53%</span>
 </li><li>
 <svg xmlns="http://www.w3.org/2000/svg" class="octicon" style="fill:#f1e05a;" viewBox="0 0 16 16" width="16" height="16"><circle xmlns="http://www.w3.org/2000/svg" cx="8" cy="9" r="5" /></svg>
 <span class="lang">JavaScript</span>
-<span class="percent">19.33%</span>
+<span class="percent">20.48%</span>
 </li><li>
 <svg xmlns="http://www.w3.org/2000/svg" class="octicon" style="fill:#3572A5;" viewBox="0 0 16 16" width="16" height="16"><circle xmlns="http://www.w3.org/2000/svg" cx="8" cy="9" r="5" /></svg>
 <span class="lang">Python</span>
-<span class="percent">17.26%</span>
+<span class="percent">18.29%</span>
 </li><li>
 <svg xmlns="http://www.w3.org/2000/svg" class="octicon" style="fill:#3d8137;" viewBox="0 0 16 16" width="16" height="16"><circle xmlns="http://www.w3.org/2000/svg" cx="8" cy="9" r="5" /></svg>
 <span class="lang">Nunjucks</span>
-<span class="percent">5.82%</span>
-</li><li>
-<svg xmlns="http://www.w3.org/2000/svg" class="octicon" style="fill:#000080;" viewBox="0 0 16 16" width="16" height="16"><circle xmlns="http://www.w3.org/2000/svg" cx="8" cy="9" r="5" /></svg>
-<span class="lang">Lua</span>
-<span class="percent">5.61%</span>
+<span class="percent">6.17%</span>
 </li><li>
 <svg xmlns="http://www.w3.org/2000/svg" class="octicon" style="fill:#89e051;" viewBox="0 0 16 16" width="16" height="16"><circle xmlns="http://www.w3.org/2000/svg" cx="8" cy="9" r="5" /></svg>
 <span class="lang">Shell</span>
-<span class="percent">3.42%</span>
+<span class="percent">3.63%</span>
 </li><li>
 <svg xmlns="http://www.w3.org/2000/svg" class="octicon" style="fill:#e34c26;" viewBox="0 0 16 16" width="16" height="16"><circle xmlns="http://www.w3.org/2000/svg" cx="8" cy="9" r="5" /></svg>
 <span class="lang">HTML</span>
-<span class="percent">2.92%</span>
+<span class="percent">3.09%</span>
+</li><li>
+<svg xmlns="http://www.w3.org/2000/svg" class="octicon" style="fill:#563d7c;" viewBox="0 0 16 16" width="16" height="16"><circle xmlns="http://www.w3.org/2000/svg" cx="8" cy="9" r="5" /></svg>
+<span class="lang">CSS</span>
+<span class="percent">2.60%</span>
 </li>
                     </ul>
                 </div>
