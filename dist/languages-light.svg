@@ -98,7 +98,7 @@ li:nth-child(even) {
                     <h2>Most Used Languages</h2>
                     <div>
                         <span class="progress">
-                        <span style="background-color: #3178c6; width: 27.882%;"></span><span style="background-color: #c6538c; width: 19.014%;"></span><span style="background-color: #f1e05a; width: 16.650%;"></span><span style="background-color: #3572A5; width: 16.152%;"></span><span style="background-color: #3d8137; width: 5.618%;"></span><span style="background-color: #89e051; width: 5.550%;"></span><span style="background-color: #563d7c; width: 4.589%;"></span><span style="background-color: #e34c26; width: 2.739%;"></span>
+                        <span style="background-color: #3178c6; width: 27.877%;"></span><span style="background-color: #c6538c; width: 19.014%;"></span><span style="background-color: #f1e05a; width: 16.656%;"></span><span style="background-color: #3572A5; width: 16.152%;"></span><span style="background-color: #3d8137; width: 5.618%;"></span><span style="background-color: #89e051; width: 5.550%;"></span><span style="background-color: #563d7c; width: 4.589%;"></span><span style="background-color: #e34c26; width: 2.739%;"></span>
                         </span>
                     </div>
                     <ul>
@@ -113,7 +113,7 @@ li:nth-child(even) {
 </li><li>
 <svg xmlns="http://www.w3.org/2000/svg" class="octicon" style="fill:#f1e05a;" viewBox="0 0 16 16" width="16" height="16"><circle xmlns="http://www.w3.org/2000/svg" cx="8" cy="9" r="5" /></svg>
 <span class="lang">JavaScript</span>
-<span class="percent">16.65%</span>
+<span class="percent">16.66%</span>
 </li><li>
 <svg xmlns="http://www.w3.org/2000/svg" class="octicon" style="fill:#3572A5;" viewBox="0 0 16 16" width="16" height="16"><circle xmlns="http://www.w3.org/2000/svg" cx="8" cy="9" r="5" /></svg>
 <span class="lang">Python</span>
