@@ -98,42 +98,42 @@ li:nth-child(even) {
                     <h2>Most Used Languages</h2>
                     <div>
                         <span class="progress">
-                        <span style="background-color: #3178c6; width: 29.151%;"></span><span style="background-color: #c6538c; width: 17.518%;"></span><span style="background-color: #f1e05a; width: 16.910%;"></span><span style="background-color: #3572A5; width: 14.861%;"></span><span style="background-color: #3d8137; width: 5.668%;"></span><span style="background-color: #563d7c; width: 4.735%;"></span><span style="background-color: #89e051; width: 4.177%;"></span><span style="background-color: #e34c26; width: 2.882%;"></span>
+                        <span style="background-color: #3178c6; width: 29.226%;"></span><span style="background-color: #c6538c; width: 17.566%;"></span><span style="background-color: #f1e05a; width: 16.756%;"></span><span style="background-color: #3572A5; width: 14.901%;"></span><span style="background-color: #3d8137; width: 5.616%;"></span><span style="background-color: #563d7c; width: 4.748%;"></span><span style="background-color: #89e051; width: 4.189%;"></span><span style="background-color: #e34c26; width: 2.890%;"></span>
                         </span>
                     </div>
                     <ul>
                     <li>
 <svg xmlns="http://www.w3.org/2000/svg" class="octicon" style="fill:#3178c6;" viewBox="0 0 16 16" width="16" height="16"><circle xmlns="http://www.w3.org/2000/svg" cx="8" cy="9" r="5" /></svg>
 <span class="lang">TypeScript</span>
-<span class="percent">29.15%</span>
+<span class="percent">29.23%</span>
 </li><li>
 <svg xmlns="http://www.w3.org/2000/svg" class="octicon" style="fill:#c6538c;" viewBox="0 0 16 16" width="16" height="16"><circle xmlns="http://www.w3.org/2000/svg" cx="8" cy="9" r="5" /></svg>
 <span class="lang">SCSS</span>
-<span class="percent">17.52%</span>
+<span class="percent">17.57%</span>
 </li><li>
 <svg xmlns="http://www.w3.org/2000/svg" class="octicon" style="fill:#f1e05a;" viewBox="0 0 16 16" width="16" height="16"><circle xmlns="http://www.w3.org/2000/svg" cx="8" cy="9" r="5" /></svg>
 <span class="lang">JavaScript</span>
-<span class="percent">16.91%</span>
+<span class="percent">16.76%</span>
 </li><li>
 <svg xmlns="http://www.w3.org/2000/svg" class="octicon" style="fill:#3572A5;" viewBox="0 0 16 16" width="16" height="16"><circle xmlns="http://www.w3.org/2000/svg" cx="8" cy="9" r="5" /></svg>
 <span class="lang">Python</span>
-<span class="percent">14.86%</span>
+<span class="percent">14.90%</span>
 </li><li>
 <svg xmlns="http://www.w3.org/2000/svg" class="octicon" style="fill:#3d8137;" viewBox="0 0 16 16" width="16" height="16"><circle xmlns="http://www.w3.org/2000/svg" cx="8" cy="9" r="5" /></svg>
 <span class="lang">Nunjucks</span>
-<span class="percent">5.67%</span>
+<span class="percent">5.62%</span>
 </li><li>
 <svg xmlns="http://www.w3.org/2000/svg" class="octicon" style="fill:#563d7c;" viewBox="0 0 16 16" width="16" height="16"><circle xmlns="http://www.w3.org/2000/svg" cx="8" cy="9" r="5" /></svg>
 <span class="lang">CSS</span>
-<span class="percent">4.74%</span>
+<span class="percent">4.75%</span>
 </li><li>
 <svg xmlns="http://www.w3.org/2000/svg" class="octicon" style="fill:#89e051;" viewBox="0 0 16 16" width="16" height="16"><circle xmlns="http://www.w3.org/2000/svg" cx="8" cy="9" r="5" /></svg>
 <span class="lang">Shell</span>
-<span class="percent">4.18%</span>
+<span class="percent">4.19%</span>
 </li><li>
 <svg xmlns="http://www.w3.org/2000/svg" class="octicon" style="fill:#e34c26;" viewBox="0 0 16 16" width="16" height="16"><circle xmlns="http://www.w3.org/2000/svg" cx="8" cy="9" r="5" /></svg>
 <span class="lang">HTML</span>
-<span class="percent">2.88%</span>
+<span class="percent">2.89%</span>
 </li>
                     </ul>
                 </div>
